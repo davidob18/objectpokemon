@@ -4,60 +4,60 @@ class Pokemon(BasePokemon):
     def __init__(self):
         BasePokemon.__init__(self)
         # Has to sum to 100
-        self.spend_hp(0)
-        self.spend_attack(0)
-        self.spend_defence(100)
-        self.add_move(Chancla_fuego())
-        self.add_move(Escupir())
-        self.add_move(Taco_picante())
-        self.add_move(Agua_horchata())
-        self.set_type(Type.FIRE)
+        self.spend_hp(30)
+        self.spend_attack(40)
+        self.spend_defence(30)
+        self.add_move(Cabezazo_mortal())
+        self.add_move(Mirada_fea())
+        self.add_move(Vamos_por_unos_tacos())
+        self.add_move(Saca_las_caguamas())
+        self.set_type(Type.WATER)
         self.move = 0
-        self.moves = ['Taco picante!!', "Escupitajo", "Agua de horchata!", "Chancla de fuego"]
+        self.moves = ["Mirada fea", "Cabezazo mortal", "Vamos por unos tacos", "Saca las caguamas"]
 
 
     def get_name(self):
-        return "Xolojolote"
+        return "Tuzito"
 
     def choose_move(self, enemy):
         mov = self.moves[self.move]
         self.move = self.move + 1 if self.move < len(self.moves) - 1 else 0
         return self.get_move_by_name(mov)
 
-class Chancla_fuego(BaseMove):
+class Cabezazo_mortal(BaseMove):
     def __init__(self):
         BaseMove.__init__(self)
         self.choose_uses(1)
         self.set_type(Type.FIRE)
 
     def get_name(self):
-        return "Chancla de fuego"
+        return "Cabezazo mortal"
 
-class Escupir(BaseMove):
-    def __init__(self):
-        BaseMove.__init__(self)
-        self.choose_uses(1)
-        self.set_type(Type.FIRE)
-
-    def get_name(self):
-        return "Escupitajo"
-
-
-class Taco_picante(BaseMove):
-    def __init__(self):
-        BaseMove.__init__(self)
-        self.choose_uses(1)
-        self.set_type(Type.FIRE)
-
-    def get_name(self):
-        return "Taco picante!!"
-
-
-class Agua_horchata(BaseMove):
+class Mirada_fea(BaseMove):
     def __init__(self):
         BaseMove.__init__(self)
         self.choose_uses(1)
         self.set_type(Type.WATER)
 
     def get_name(self):
-        return "Agua de horchata!"
+        return "Mirada fea"
+
+
+class Vamos_por_unos_tacos(BaseMove):
+    def __init__(self):
+        BaseMove.__init__(self)
+        self.choose_uses(1)
+        self.set_type(Type.EARTH)
+
+    def get_name(self):
+        return "Vamos por unos tacos"
+
+
+class Saca_las_caguamas(BaseMove):
+    def __init__(self):
+        BaseMove.__init__(self)
+        self.choose_uses(1)
+        self.set_type(Type.FIRE)
+
+    def get_name(self):
+        return "Saca las caguamas"
